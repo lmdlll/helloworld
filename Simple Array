@@ -1,0 +1,97 @@
+package test1.lmd;
+
+import java.util.Arrays;
+
+/**找数组中的最大值、最小值、计算数组值之和、数组拼接、数组截取、数组打印、数组反转、
+ */
+class Exc{
+    //最大值
+    public static int Max(int[] data){
+//        //方法1  最基础
+//        int max = data[0];
+//        for(int i=0; i<data.length; i++){
+//            if(data[i]>max){
+//                max = data[i];
+//            }
+//        }
+        //方法2 使用工具类
+        Arrays.sort(data);
+        int len = data.length;
+        int max = data[len-1];
+        return max;
+    }
+    //最小值  同最大值
+    public static int Min(int[] data){
+//        //方法1  最基础
+//        int min = data[0];
+//        for(int i=0; i<data.length; i++){
+//            if(data[i]<min){
+//                min = data[i];
+//            }
+//        }
+        //方法2 使用工具类
+        Arrays.sort(data);
+        int min = data[0];
+        return min;
+    }
+    //数组之和
+    public static int Sum(int[] data){
+        int res = 0;
+        for(int i=0; i<data.length; i++){
+            res += data[i];
+        }
+        return res;
+    }
+    //数组拼接
+    public static int[] ArrayJoin(int[] data,int[] data2){
+//        //方法1
+//        int[] tmp = new int[data.length+data2.length];
+//        int j = 0;
+//        for(int i=0; i<data.length; i++){
+//            tmp[i] = data[j];
+//            j++;
+//        }
+//        j=0;
+//        for(int i=data.length; i<tmp.length; i++){
+//            tmp[i] = data2[j];
+//            j++;
+//        }
+        //System.arraycopy (源数组名称， 源数组开始点，目标数组名称，目标数组开始点，拷贝长度)；
+        int[] tmp = new int[data.length+data2.length];
+        System.arraycopy(data,0,tmp,0,data.length);
+        System.arraycopy(data2,0,tmp,data.length,data2.length);
+        return tmp;
+    }
+    //数据截取
+    public static int[] ArraySub(int[] data, int start, int end){
+        int[] tmp = new int[end-start];
+        for(int i=0; i<tmp.length; i++){
+            tmp[i] = data[start];
+            start++;
+        }
+        return tmp;
+    }
+    //数组打印
+    public static void PrintArray(int[] data){
+        for (int a:data) {
+            System.out.print(a+" ");
+        }
+        System.out.println();
+    }
+
+}
+
+public class Array {
+    public static void main(String[] args) {
+        int[] data = new int[]{1,-4,8,12,-55,100};
+        int[] data2 = new int[]{2,4,6,8,10};
+        int max = Exc.Max(data);
+        int min = Exc.Min(data);
+        System.out.println(max+" "+min);
+        int sum = Exc.Sum(data);
+        System.out.println(sum);
+        Exc.PrintArray(data);
+        Exc.PrintArray(Exc.ArrayJoin(data,data2));
+        Exc.PrintArray(Exc.ArraySub(data,0,4));
+    }
+}
