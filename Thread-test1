@@ -1,0 +1,87 @@
+
+/**
+ * 1.编写一个程序，启动三个线程，三个线程的名称分别是A,B,C
+ * 每个线程将自己的米高处打印5遍，打印顺序ABCABCABC...
+ */
+
+
+class Print{
+    private int flag = 1;
+    private int count = 0;
+    public int getCount() {
+        return count;
+    }
+
+    public synchronized void PrintA() {
+        while (this.flag != 1) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.print(Thread.currentThread().getName());
+        this.flag = 2;
+        this.count++;
+        notifyAll();
+    }
+    public synchronized void PrintB(){
+        while (this.flag != 2) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.print(Thread.currentThread().getName());
+        this.flag = 3;
+        this.count++;
+        notifyAll();
+    }
+    public synchronized void PrintC(){
+        while (this.flag != 3) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.print(Thread.currentThread().getName()+" ");
+        this.flag = 1;
+        this.count++;
+        notifyAll();
+    }
+
+}
+
+class MyThread implements Runnable{
+    private Print print;
+    public MyThread(Print print) {
+        this.print = print;
+    }
+    @Override
+    public void run() {
+        while (print.getCount()<16){
+            if (Thread.currentThread().getName().equals("A")) {
+                print.PrintA();
+            } else if (Thread.currentThread().getName().equals("B")) {
+                print.PrintB();
+            } else if (Thread.currentThread().getName().equals("C")) {
+                print.PrintC();
+            }
+        }
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        Print print = new Print();
+        MyThread mt = new MyThread(print);
+        new Thread(mt,"A").start();
+        new Thread(mt,"B").start();
+        new Thread(mt,"C").start();
+
+    }
+}
