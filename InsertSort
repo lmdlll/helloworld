@@ -1,0 +1,58 @@
+class Sort{
+
+    //插入排序
+    public int[] InsertSort(int[] data){
+        for(int i=1; i<data.length; i++){
+            int key = data[i];
+            int end = i-1;
+            while (end>=0 && key<data[end]){
+                data[end+1] = data[end];
+                end--;
+            }
+            data[end+1] = key;
+        }
+        return data;
+    }
+
+    //希尔排序
+    public int[] ShellSort(int[] data){
+        int gap = data.length;
+        while (gap>1) {
+            gap = gap/3+1;
+            for (int i = gap; i < data.length; i++) {
+                int key = data[i];
+                int end = i - gap;
+                while (end >= 0 && key < data[end]) {
+                    data[end + gap] = data[end];
+                    end -= gap;
+                }
+                data[end + gap] = key;
+            }
+        }
+        return data;
+    }
+}
+
+
+
+class Print{
+    public static void print(int[] data){
+        for (int i:data) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        int[] data = new int[]{2 , 5 , 4 , 9 , 3 , 6 , 8 , 7 , 1 , 0};
+        Sort sort = new Sort();
+//        int[] newdata = sort.InsertSort(data);
+//        Print.print(newdata);
+        int[] newdata2 = sort.ShellSort(data);
+        Print.print(newdata2);
+    }
+}
