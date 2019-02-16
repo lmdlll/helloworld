@@ -1,0 +1,71 @@
+class Sort{
+
+    public int FindPos(int[] data,int left, int right){
+        int pos = data[right];
+        int start = left;
+        int end = right;
+        while (start<end){
+            while (start<end && data[start]<=pos){
+                start++;
+            }
+            if(start == end){
+                break;
+            }
+            data[end] = data[start];
+            while (start<end && data[end]>=pos){
+                end--;
+            }
+            if(start == end){
+                break;
+            }
+            data[start] = data[end];
+
+        }
+        data[start] = pos;
+        return start;
+    }
+
+    //快速排序
+    public void QuickSort(int[] data,int left, int right){
+        if(left>=right){
+            return;
+        }
+        int pos = FindPos(data,left,right);
+        QuickSort(data, left, (pos-1));
+        QuickSort(data, pos , right);
+
+    }
+
+
+
+    //交换
+    public static int[] Swap(int[] data, int a, int b){
+        int tmp = data[a];
+        data[a] = data[b];
+        data[b] = tmp;
+        return data;
+    }
+}
+
+
+
+class Print{
+    public static void print(int[] data){
+        for (int i:data) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        int[] data = new int[]{2 , 0 , 4 , 9 , 3 , 6 , 8 , 7 , 1 , 5};
+        Sort sort = new Sort();
+        sort.QuickSort(data,0,(data.length-1));
+        Print.print(data);
+    }
+
+}
