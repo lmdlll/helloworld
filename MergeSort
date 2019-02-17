@@ -1,0 +1,65 @@
+class Sort{
+    //归并排序
+    public int[] MergeSort(int[] data,int left, int right){
+        int mid = left+(right-left)/2;
+        if(left<right){
+            MergeSort(data,left,mid);
+            MergeSort(data,(mid+1),right);
+            merge(data,left,mid,right);
+
+        }
+        return data;
+    }
+
+    public void merge(int[] data,int left, int mid, int right){
+        //用于存储归并后的临时数组
+        int[] tmp = new int[right-left+1];
+        //记录第一个数组中需要变量的下标
+        int i = left;
+        //记录第二个数组中需要变量的下标
+        int j = mid+1;
+        //用于记录在临时数组中存放的下标
+        int index = 0;
+        //遍历两个数字中取出较小的数组，加入临时数组
+        while (i<=mid && j<=right){
+            if(data[i]<data[j]){
+                tmp[index++] = data[i++];
+            }else {
+                tmp[index++] = data[j++];
+            }
+        }
+        //处理多余的数据
+        while (i<=mid){
+            tmp[index++] = data[i++];
+        }
+        while (j<=right){
+            tmp[index++] = data[j++];
+        }
+        //覆盖
+        for(int k=0; k<tmp.length; k++){
+            data[k+left] = tmp[k];
+        }
+    }
+
+}
+
+class Print{
+    public static void print(int[] data){
+        for (int i:data) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        int[] data = new int[]{2 , 5 , 4 , 0 , 3 , 6 , 8 , 7 , 1 , 9};
+        Sort sort = new Sort();
+        int[] newdata6 = sort.MergeSort(data,0,(data.length-1));
+        Print.print(newdata6);
+    }
+
+}
