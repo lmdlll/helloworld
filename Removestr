@@ -1,0 +1,20 @@
+package Array;
+
+
+public class Removeaei {
+    public static void main(String[] args) {
+        //输入两个字符串：They are student  和 aeiou
+        //预期结果：Thy r stdnts
+        String str1 = "They are student";
+        String str2 = "aeiou";
+        String result = Remove(str1,str2);
+        System.out.println(result);
+    }
+    public static String Remove(String str1,String str2){
+        for (int i=0; i<str2.length(); i++) {
+            char tmp = str2.charAt(i);
+            str1 = str1.replaceAll(String.valueOf(tmp), "");
+        }
+        return str1;
+    }
+}
