@@ -1,0 +1,40 @@
+package com.lmd.Single;
+
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class SingleServer {
+    public static void main(String[] args) throws IOException {
+        ServerSocket server = null;
+        PrintStream printStream = null;
+        Scanner scanner = null;
+        try {
+            //1.建立基站
+            server = new ServerSocket(8888);
+            System.out.println("等待客户连接。。。");
+            //2.等待客户连接
+            Socket client = server.accept();
+            System.out.println("客户端连接成功，端口号为："+client.getPort());
+            //3.取得输入输出流
+            printStream = new PrintStream(client.getOutputStream(),true,"UTF-8");
+            printStream.println("hello i am Server");
+            scanner =  new Scanner(client.getInputStream());
+            if(scanner.hasNext()){
+                System.out.println("客户端发来的消息"+scanner.nextLine());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            printStream.close();
+            scanner.close();
+            server.close();
+        }
+
+
+    }
+
+}
