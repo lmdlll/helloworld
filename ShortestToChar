@@ -1,0 +1,97 @@
+package Array;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 给定一个字符串 S 和一个字符 C。返回一个代表字符串 S 中每个字符到字符串 S 中的字符 C 的最短距离的数组。
+ *
+ * 示例 1:
+ *
+ * 输入: S = "loveleetcode", C = 'e'
+ * 输出: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
+ * 说明:
+ *
+ * 字符串 S 的长度范围为 [1, 10000]。
+ * C 是一个单字符，且保证是字符串 S 里的字符。
+ * S 和 C 中的所有字母均为小写字母。
+ */
+
+
+
+public class Text {
+    public static void main(String[] args) {
+        String S = "loveleetcode";
+        char C = 'e';
+        int[] data = shortestToCharhi(S,C);
+        for(int i:data){
+            System.out.print(i+" ");
+        }
+        int[] data2 = shortestToChar(S,C);
+        for(int i:data2){
+            System.out.print(i+" ");
+        }
+
+    }
+    public static int[] shortestToCharhi(String S, char C) {
+        if(S.length()>10000 && S.length()<1){
+            return new int[0];
+        }
+        int[] data = new int[S.length()];
+        if(!S.contains(String.valueOf(C))){
+            return data;
+        }
+        int j=0;
+        int[] ls = new int[S.length()];
+        //存储‘e’的下标位置
+        int count=0;
+        for(int i=0; i<S.length(); i++){
+            char tmp = S.charAt(i);
+            if(tmp==C){
+                ls[j] = i;
+                j++;
+                count++;
+            }
+        }
+        int[] hh = new int[count];
+        for(int i=0; i<hh.length; i++){
+            hh[i] = ls[i];
+        }
+        ls=hh;
+        for(int i=0; i<S.length(); i++){
+            int min = Integer.MAX_VALUE;
+            for(int k=0; k<ls.length; k++){
+                int minch =Math.abs(ls[k]-i);
+                min = Math.min(min,minch);
+            }
+            data[i] = min;
+        }
+        return data;
+    }
+    
+    public static int[] shortestToChar(String S, char C) {
+        if (S == null || S.length() == 0) {
+            return null;
+        }
+        int[] data = new int[S.length()];
+        if(!S.contains(String.valueOf(C))){
+            return data;
+        }
+        List<Integer> listNum = new ArrayList();
+        for (int j = 0; j < S.length(); j++) {
+            if(S.charAt(j)==C){
+                listNum.add(j);
+            }
+        }
+        for (int t = 0; t < S.length(); t++) {
+            int min =Integer.MAX_VALUE;
+            for(int k =0;k<listNum.size();k++){
+                int dis = Math.abs(listNum.get(k)-t);
+                min = Math.min(min,dis);
+            }
+            data[t]=min;
+        }
+
+        return data;
+    }
+}
