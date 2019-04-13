@@ -1,6 +1,5 @@
 package Nvk;
 
-import java.util.Scanner;
 
 /**
  * 风口的猪-中国牛市
@@ -13,10 +12,8 @@ import java.util.Scanner;
  * 输出：12  (-3+8-1+8)
  */
 
-//TODO： 不想做了，看到股票头疼……
 public class Stock {
-
-
+    //思路：分为两个数组，分别计算其中最大的差值
     public static int getmax(int[] prices, int start, int end) {
         int max = 0;
         int min = prices[start];
