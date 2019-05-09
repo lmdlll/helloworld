@@ -13,7 +13,7 @@ class PrintTable(object):
 
         for i in range(1,10):
             for j in range(1,i+1):
-                print('%dx%d=%2s ' %(i,j,i*j))
+                print('%dx%d=%2s \t' %(i,j,i*j))
             print('\n')
 
 
