@@ -1,4 +1,4 @@
-#题目：同样大小的小球1~10，随机取出一个球，计算各个小球被取出的概率
+#题目：同样大小的小球1~10，随机取出一个球，计算在一定测试次数中各个小球被取出的概率
 #-*- coding:utf-8 -*-
 #随机数
 import random
@@ -9,12 +9,13 @@ class SelectBall(object):
 
     def run(self):
         while True:
-            numStr = input('输入测试的次数：')
+            #类似于java中的try catch
             try:
-                num=int(numStr)
+                num = int(input('输入测试的次数： '))
             except ValueError as e:
                 print('出错了'+e)
                 print('请输入一个整数')
+                continue
             else:
                 break
         ball=[0,0,0,0,0,0,0,0,0,0]

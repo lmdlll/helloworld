@@ -1,15 +1,19 @@
-# 题目：反向输出一个链表。
-# 思路：使用方法reverse
+#去除列表中重复元素[0,1,2,3,4,5,5,3,1]
 
-if __name__ == '__main__':
-    #定义一个链表
-    ptr = []
-    print type(ptr)
-    j=int(input("输入链表长度:"))
-    print('请输入%d个数字' %j)
-    for i in range(j):
-        num = int(raw_input())
-        ptr.append(num)
-    print ptr
-    ptr.reverse()
-    print ptr
+#常规思路：
+def divit(list1):
+    num=[]
+    for each in list1:
+        if each not in num:
+            num.append(each)
+    return num
+
+#利用集合set
+def divit2(list1):
+    num=list(set(list1))
+
+listi=[1,2,3,4,5,5,3,1,0]
+list1 = divit(listi)
+list2 = divit(listi)
+print list1
+print list2
