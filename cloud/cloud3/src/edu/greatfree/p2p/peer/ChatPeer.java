@@ -2,6 +2,7 @@ package edu.greatfree.p2p.peer;
 
 import java.io.IOException;
 
+import edu.greatfree.p2p.message.*;
 import org.greatfree.data.ClientConfig;
 import org.greatfree.data.ServerConfig;
 import org.greatfree.exceptions.RemoteReadException;
@@ -13,12 +14,6 @@ import org.greatfree.util.TerminateSignal;
 
 import edu.greatfree.cs.multinode.ChatConfig;
 import edu.greatfree.p2p.RegistryConfig;
-import edu.greatfree.p2p.message.AddPartnerNotification;
-import edu.greatfree.p2p.message.ChatNotification;
-import edu.greatfree.p2p.message.ChatPartnerRequest;
-import edu.greatfree.p2p.message.ChatPartnerResponse;
-import edu.greatfree.p2p.message.ChatRegistryRequest;
-import edu.greatfree.p2p.message.ChatRegistryResponse;
 
 /*
  * This is the chatting peer. As an independent distributed node, each peer is able to interact with each other without a centralized polling server. That is, they can send messages instantly. 04/30/2017, Bing Li
@@ -146,5 +141,10 @@ class ChatPeer
 	public void notifyChat(String ip, int port, String message)
 	{
 		this.chatPeer.asyncNotify(ip, port, new ChatNotification(message, ChatMaintainer.PEER().getLocalUsername()));
+	}
+
+	public void notifyImage(String ip, int port, byte[] bytes)
+	{
+		this.chatPeer.asyncNotify(ip, port, new SendImageFileNotification(bytes));
 	}
 }

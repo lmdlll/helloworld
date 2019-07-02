@@ -1,13 +1,13 @@
 package edu.greatfree.p2p.peer;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 import edu.greatfree.cs.multinode.ChatMenu;
 import edu.greatfree.cs.multinode.ChatOptions;
 import edu.greatfree.p2p.message.Openpicture;
+import edu.greatfree.p2p.message.SendImageFileNotification;
 import edu.greatfree.p2p.message.sendpicture;
 
 import javax.swing.*;
@@ -62,7 +62,6 @@ class ChatUI
 		System.out.println(ChatMenu.MENU_HEAD);
 		System.out.println(ChatMenu.TYPE_MESSAGE + ChatMaintainer.PEER().getPartner());
 		System.out.println(ChatMenu.SEND_PICTURE);
-		System.out.println(ChatMenu.SECEVICE_PICTURE);
 		System.out.println(ChatMenu.QUIT);
 		System.out.println(ChatMenu.MENU_TAIL);
 		System.out.println(ChatMenu.INPUT_PROMPT);
@@ -88,23 +87,35 @@ class ChatUI
 			//发送图片
 			// TODO:
 			case ChatOptions.SEND_PICTURE:
-				System.out.println("Send your picture: ");
-				String str;
+				String fiilName =null;
+//				System.out.println("Send your picture: ");
+//				String str;
+//				try {
+//					boolean result = sendpicture.copyFile(soupath,despath);
+//					if(result==true){
+//						str="发送成功";
+//					}else{
+//						str="发送失败";
+//					}
+//					ChatPeer.PEER().notifyChat(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), str);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+				InputStream inputStream = null;
+				File file = new File(fiilName);
+				byte[] bytes = new byte[(int)file.length()];
 				try {
-					boolean result = sendpicture.copyFile(soupath,despath);
-					if(result==true){
-						str="发送成功";
-					}else{
-						str="发送失败";
-					}
-					ChatPeer.PEER().notifyChat(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), str);
-				} catch (IOException e) {
+					inputStream = new FileInputStream(file);
+					ChatPeer.PEER().notifyImage(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), bytes);
+
+					inputStream.read(bytes);
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
 				break;
 
-			//接收图片
+			//接收图片 暂时去掉，没有意义
 			case ChatOptions.RECEIVE_PICTURE:
 				System.out.println("Receive pictures: ");
 				String res;

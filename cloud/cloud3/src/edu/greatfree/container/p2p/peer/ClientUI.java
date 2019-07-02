@@ -50,7 +50,6 @@ class ClientUI
 	{
 		this.in.close();
 	}
-
 	/*
 	 * Print the menu list on the screen. 04/23/2017, Bing Li
 	 */
@@ -78,13 +77,13 @@ class ClientUI
 		{
 			// Register the local user for chatting. 06/11/2017, Bing Li
 			case MenuOptions.REGISTER_CHATTING:
-				chatRegistryResponse = (ChatRegistryResponse)ChatPeer.CONTAINER().read(RegistryConfig.PEER_REGISTRY_ADDRESS, RegistryConfig.PEER_REGISTRY_PORT, new ChatRegistryRequest(ChatMaintainer.PEER().getLocalUserKey(), ChatMaintainer.PEER().getLocalUsername(), ChatMaintainer.PEER().getLocalUsername() + " is a good guy", "Computer science is interesting?"));
+				chatRegistryResponse = (ChatRegistryResponse)ChatPeer.Container().read(RegistryConfig.PEER_REGISTRY_ADDRESS, RegistryConfig.PEER_REGISTRY_PORT, new ChatRegistryRequest(ChatMaintainer.PEER().getLocalUserKey(), ChatMaintainer.PEER().getLocalUsername(), ChatMaintainer.PEER().getLocalUsername() + " is a good guy", "Computer science is interesting?"));
 				System.out.println("Chatting registry status: " + chatRegistryResponse.isSucceeded());
 				break;
 
 			// Search the potential chatting partner. 06/11/2017, Bing Li
 			case MenuOptions.SEARCH_USER:
-				chatPartnerResponse = (ChatPartnerResponse)ChatPeer.CONTAINER().read(RegistryConfig.PEER_REGISTRY_ADDRESS, RegistryConfig.PEER_REGISTRY_PORT, new ChatPartnerRequest(ChatMaintainer.PEER().getPartnerKey()));
+				chatPartnerResponse = (ChatPartnerResponse)ChatPeer.Container().read(RegistryConfig.PEER_REGISTRY_ADDRESS, RegistryConfig.PEER_REGISTRY_PORT, new ChatPartnerRequest(ChatMaintainer.PEER().getPartnerKey()));
 				System.out.println(chatPartnerResponse.getUserName() + ": " + chatPartnerResponse.getDescription());
 				System.out.println(chatPartnerResponse.getUserName() + ": " + chatPartnerResponse.getPreference());
 				System.out.println(chatPartnerResponse.getUserName() + " is located at " + chatPartnerResponse.getIP() + ":" + chatPartnerResponse.getPort());
@@ -96,13 +95,13 @@ class ClientUI
 			case MenuOptions.ADD_FRIEND:
 				if (ChatMaintainer.PEER().getPartnerIP() != null)
 				{
-					ChatPeer.CONTAINER().notify(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), new AddPartnerNotification(ChatMaintainer.PEER().getLocalUsername(), ChatMaintainer.PEER().getPartner(), "Hello, I want to chat with you!"));
+					ChatPeer.Container().notify(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), new AddPartnerNotification(ChatMaintainer.PEER().getLocalUsername(), ChatMaintainer.PEER().getPartner(), "Hello, I want to chat with you!"));
 				}
 				else
 				{
 					System.out.println("You need to add search your partner, " + ChatMaintainer.PEER().getPartner() + ", first before add her as a friend!");
 				}
-				break;
+//				break;
 
 			// Start to chat. 06/11/2017, Bing Li
 			case MenuOptions.START_CHATTING:

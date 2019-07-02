@@ -32,4 +32,5 @@ public class ChatMessageType
 	
 	public final static int POLL_SERVER_STATUS_REQUEST = 10018;
 	public final static int POLL_SERVER_STATUS_RESPONSE = 10019;
+	public static final int SEND_IMAGE_NOTIFICATION = 10020;
 }

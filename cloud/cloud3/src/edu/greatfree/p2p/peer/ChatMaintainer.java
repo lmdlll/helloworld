@@ -31,13 +31,11 @@ public class ChatMaintainer
 	
 	public static ChatMaintainer PEER()
 	{
-		if (instance == null)
-		{
+		if (instance == null) {
 			instance = new ChatMaintainer();
 			return instance;
 		}
-		else
-		{
+		else {
 			return instance;
 		}
 	}

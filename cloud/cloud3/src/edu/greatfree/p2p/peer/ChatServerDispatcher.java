@@ -2,10 +2,12 @@ package edu.greatfree.p2p.peer;
 
 import java.util.Calendar;
 
+import edu.greatfree.p2p.message.MesgNotification;
 import org.greatfree.client.OutMessageStream;
 import org.greatfree.concurrency.interactive.NotificationDispatcher;
 import org.greatfree.data.ServerConfig;
 import org.greatfree.message.ServerMessage;
+import org.greatfree.message.container.Notification;
 import org.greatfree.server.ServerDispatcher;
 
 import edu.greatfree.cs.multinode.message.ChatMessageType;
@@ -22,7 +24,8 @@ class ChatServerDispatcher extends ServerDispatcher<ServerMessage>
 	// Declare a notification dispatcher to add partner invitation to the peer when such a notification is received. 04/18/2016, Bing Li
 	private NotificationDispatcher<AddPartnerNotification, AddPartnerThread, AddPartnerThreadCreator> partnerNotificationDispatcher;
 	// Declare a notification dispatcher to display chats to the peer when such a notification is received. 04/18/2016, Bing Li
-	private NotificationDispatcher<ChatNotification, ChatThread, ChatThreadCreator> chatNotificationDispatcher;
+//	private NotificationDispatcher<ChatNotification, ChatThread, ChatThreadCreator> chatNotificationDispatcher;
+	private NotificationDispatcher<MesgNotification, ChatThread, ChatThreadCreator> mesgNotificationDispatcher;
 
 	public ChatServerDispatcher(int threadPoolSize, long threadKeepAliveTime, int schedulerPoolSize, long schedulerKeepAliveTime)
 	{
@@ -39,7 +42,7 @@ class ChatServerDispatcher extends ServerDispatcher<ServerMessage>
 				.scheduler(super.getScheduler())
 				.build();
 
-		this.chatNotificationDispatcher = new NotificationDispatcher.NotificationDispatcherBuilder<ChatNotification, ChatThread, ChatThreadCreator>()
+		this.mesgNotificationDispatcher = new NotificationDispatcher.NotificationDispatcherBuilder<MesgNotification, ChatThread, ChatThreadCreator>()
 				.poolSize(ServerConfig.NOTIFICATION_DISPATCHER_POOL_SIZE)
 				.threadCreator(new ChatThreadCreator())
 				.notificationQueueSize(ServerConfig.NOTIFICATION_QUEUE_SIZE)
@@ -56,7 +59,7 @@ class ChatServerDispatcher extends ServerDispatcher<ServerMessage>
 	public void dispose(long timeout) throws InterruptedException
 	{
 		this.partnerNotificationDispatcher.dispose();
-		this.chatNotificationDispatcher.dispose();
+		this.mesgNotificationDispatcher.dispose();
 		super.shutdown(timeout);
 	}
 
@@ -81,13 +84,16 @@ class ChatServerDispatcher extends ServerDispatcher<ServerMessage>
 			case ChatMessageType.PEER_CHAT_NOTIFICATION:
 				System.out.println("PEER_CHAT_NOTIFICATION received @" + Calendar.getInstance().getTime());
 				// Check whether the chatting notification dispatcher is ready or not. 02/15/2016, Bing Li
-				if (!this.chatNotificationDispatcher.isReady())
+				if (!this.mesgNotificationDispatcher.isReady())
 				{
 					// Execute the notification dispatcher concurrently. 02/15/2016, Bing Li
-					super.execute(this.chatNotificationDispatcher);
+					super.execute(this.mesgNotificationDispatcher);
 				}
 				// Enqueue the instance of ChatNotification into the dispatcher for concurrent processing. 02/15/2016, Bing Li
-				this.chatNotificationDispatcher.enqueue((ChatNotification)message.getMessage());
+				//有问题
+                // TODO:
+                this.mesgNotificationDispatcher.enqueue((MesgNotification) message.getMessage());
+
 				break;
 		}
 	}

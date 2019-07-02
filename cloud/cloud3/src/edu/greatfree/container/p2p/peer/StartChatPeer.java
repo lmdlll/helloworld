@@ -36,7 +36,7 @@ class StartChatPeer
 		
 		System.out.println("Chatting peer starting up ...");
 
-		ChatPeer.CONTAINER().start(username, ChatConfig.CHAT_SERVER_PORT, new ChatTask(), true);
+		ChatPeer.Container().start(username, ChatConfig.CHAT_SERVER_PORT, new ChatTask(), true);
 	
 		System.out.println("Chatting peer started ...");
 
@@ -63,7 +63,7 @@ class StartChatPeer
 			}
 		}
 
-		ChatPeer.CONTAINER().stop(ChatConfig.SERVER_SHUTDOWN_TIMEOUT);
+		ChatPeer.Container().stop(ChatConfig.SERVER_SHUTDOWN_TIMEOUT);
 
 		// After the server is started, the loop check whether the flag of terminating is set. If the terminating flag is true, the process is ended. Otherwise, the process keeps running. 08/22/2014, Bing Li
 		while (!TerminateSignal.SIGNAL().isTerminated())

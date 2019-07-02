@@ -1,5 +1,6 @@
 package edu.greatfree.p2p.peer;
 
+import edu.greatfree.p2p.message.MesgNotification;
 import org.greatfree.concurrency.interactive.NotificationQueue;
 import org.greatfree.data.ServerConfig;
 
@@ -10,8 +11,8 @@ import edu.greatfree.p2p.message.ChatNotification;
  */
 
 // Created: 05/02/2017, Bing Li
-class ChatThread extends NotificationQueue<ChatNotification>
-{
+//class ChatThread extends NotificationQueue<ChatNotification>
+class ChatThread extends NotificationQueue<MesgNotification> {
 
 	public ChatThread(int taskSize)
 	{
@@ -21,7 +22,7 @@ class ChatThread extends NotificationQueue<ChatNotification>
 	@Override
 	public void run()
 	{
-		ChatNotification notification;
+		MesgNotification notification;
 		while (!this.isShutdown())
 		{
 			while (!this.isEmpty())

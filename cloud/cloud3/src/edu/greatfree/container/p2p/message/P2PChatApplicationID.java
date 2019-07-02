@@ -32,4 +32,5 @@ public class P2PChatApplicationID
 	public final static int CHAT_NOTIFICATION = 90018;
 	
 	public final static int LEAVE_CLUSTER_NOTIFICATION = 90019;
+    public static final int SEND_IMAGE_NOTIFICATION = 90020;
 }

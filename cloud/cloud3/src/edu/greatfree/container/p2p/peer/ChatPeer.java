@@ -11,26 +11,18 @@ import org.greatfree.server.container.ServerTask;
 import org.greatfree.util.TerminateSignal;
 
 // Created: 01/12/2019, Bing Li
-class ChatPeer
-{
+class ChatPeer {
 	private PeerContainer peer;
 	
-	public ChatPeer()
-	{
-	}
-	
-	private static ChatPeer instance = new ChatPeer();
-	
-	public static ChatPeer CONTAINER()
-	{
-		if (instance == null)
-		{
-			instance = new ChatPeer();
-			return instance;
+	private ChatPeer() { }
+	private static ChatPeer instanc = new ChatPeer();
+	public static ChatPeer Container() {
+		if (instanc == null) {
+			instanc = new ChatPeer();
+			return instanc;
 		}
-		else
-		{
-			return instance;
+		else {
+			return instanc;
 		}
 	}
 

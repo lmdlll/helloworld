@@ -1,7 +1,12 @@
 package edu.greatfree.container.p2p.peer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Calendar;
 
+import edu.greatfree.container.p2p.message.SendImageFileNotification;
 import org.greatfree.message.ServerMessage;
 import org.greatfree.message.container.Notification;
 import org.greatfree.message.container.Request;
@@ -14,7 +19,6 @@ import edu.greatfree.container.p2p.message.P2PChatApplicationID;
 // Created: 01/12/2019, Bing Li
 class ChatTask implements ServerTask
 {
-
 	@Override
 	public void processNotification(Notification notification)
 	{
@@ -31,6 +35,25 @@ class ChatTask implements ServerTask
 				ChatNotification cn = (ChatNotification)notification;
 				System.out.println(cn.getSenderName() + " says, " + cn.getMessage());
 				break;
+			case P2PChatApplicationID.SEND_IMAGE_NOTIFICATION:
+				System.out.println("SEND_IMAGE_NOTIFICATION received @" + Calendar.getInstance().getTime());
+				SendImageFileNotification sn = (SendImageFileNotification)notification;
+
+//				String filename = "E:\\"+"a.PNG";
+
+				String filename = "E:\\abc\\"+sn.getFileName();
+				System.out.println(filename);
+				OutputStream outputStream = null;
+				try {
+					outputStream = new FileOutputStream(new File(filename));
+					outputStream.write(sn.getBytes());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				sn.getBytes();
+
+				break;
+
 		}
 		
 	}

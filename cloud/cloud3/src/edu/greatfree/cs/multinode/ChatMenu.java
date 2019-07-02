@@ -11,7 +11,6 @@ public class ChatMenu
 	public final static String MENU_HEAD = "\n========== Menu Head ===========";
 	public final static String TYPE_MESSAGE = ClientMenu.TAB + "1) Type Message To: ";
 	public final static String SEND_PICTURE = ClientMenu.TAB + "2) Send Picture To: ";
-	public final static String SECEVICE_PICTURE = ClientMenu.TAB + "3) Recevice Picture From: ";
 	public final static String QUIT = ClientMenu.TAB + "0) Quit";
 	public final static String MENU_TAIL = "========== Menu Tail ===========\n";
 	public final static String INPUT_PROMPT = "Input an option:";

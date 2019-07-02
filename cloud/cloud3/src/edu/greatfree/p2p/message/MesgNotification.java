@@ -2,14 +2,17 @@ package edu.greatfree.p2p.message;
 
 import edu.greatfree.cs.multinode.message.ChatMessageType;
 import org.greatfree.message.ServerMessage;
+import org.greatfree.message.container.Notification;
 import org.greatfree.util.UtilConfig;
 
-public class MesgNotification extends ServerMessage {
+//public class MesgNotification extends ServerMessage
+public class MesgNotification extends Notification
+{
     private static final long serialVersionUID = -4180547758940870394L;
 
-    // The chatting message. 04/27/2017, Bing Li
+    // The chatting message
     private String message;
-    // The sender name. 04/27/2017, Bing Li
+    // The sender name
     private String senderName;
 
     public MesgNotification(String message, String senderName)

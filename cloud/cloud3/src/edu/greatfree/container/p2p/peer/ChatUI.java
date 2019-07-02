@@ -1,9 +1,13 @@
 package edu.greatfree.container.p2p.peer;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 import edu.greatfree.container.p2p.message.ChatNotification;
+import edu.greatfree.container.p2p.message.SendImageFileNotification;
 import edu.greatfree.cs.multinode.ChatMenu;
 import edu.greatfree.cs.multinode.ChatOptions;
 import edu.greatfree.p2p.peer.ChatMaintainer;
@@ -50,6 +54,7 @@ class ChatUI
 	{
 		System.out.println(ChatMenu.MENU_HEAD);
 		System.out.println(ChatMenu.TYPE_MESSAGE + ChatMaintainer.PEER().getPartner());
+		System.out.println(ChatMenu.SEND_PICTURE + ChatMaintainer.PEER().getPartner());
 		System.out.println(ChatMenu.QUIT);
 		System.out.println(ChatMenu.MENU_TAIL);
 		System.out.println(ChatMenu.INPUT_PROMPT);
@@ -66,7 +71,27 @@ class ChatUI
 			case ChatOptions.TYPE_CHAT:
 				System.out.println("Please type your message: ");
 				String message = in.nextLine();
-				ChatPeer.CONTAINER().notify(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), new ChatNotification(message, ChatMaintainer.PEER().getLocalUsername()));
+				ChatPeer.Container().notify(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(), new ChatNotification(message, ChatMaintainer.PEER().getLocalUsername()));
+				break;
+			case ChatOptions.SEND_PICTURE:
+				System.out.println("PicturePath:");
+				String filePath = in.nextLine();
+				System.out.println("PictureName:");
+				String filename = in.nextLine();
+//				String fileName ="E:\\"+"abc.jpg";
+
+				InputStream inputStream = null;
+//				File file = new File(fileName);
+				File file = new File(filePath+File.separator+filename);
+				byte[] bytes = new byte[(int)file.length()];
+				try {
+					inputStream = new FileInputStream(file);
+					inputStream.read(bytes);
+					ChatPeer.Container().notify(ChatMaintainer.PEER().getPartnerIP(), ChatMaintainer.PEER().getPartnerPort(),new SendImageFileNotification(bytes,filename));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
 				break;
 
 			case ChatOptions.QUIT_CHAT:
