@@ -2,6 +2,10 @@ package work;
 
 import java.util.HashMap;
 import java.util.Map;
+/**
+* 测试组：李梦蝶
+*/
+
 
 /**
  * 1.从用户输入的字符串中找到重复次数最多的字符，并输出字符与重复的次数
@@ -116,7 +120,7 @@ public class day1 {
         test1.cf(str);
         test1.cf2(str);
         test1.szf("abcsdabcds","abcd");
-        test1.pj(new String[]{"asdf","adfsdfb","asfv","sfgns","asdvg"});
+        test1.pj(new String[]{"asdf","adfsdfb","asfv","sfgns"});
 
     }
 }
