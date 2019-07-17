@@ -12,10 +12,11 @@ class CDLTask implements Runnable{
         System.out.println(Thread.currentThread().getName());
         try {
             TimeUnit.SECONDS.sleep(2);
+            count.countDown();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        count.countDown();
+        System.out.println("裁判挥旗，比赛结束");
     }
 }
 public class CDLTest {
@@ -25,7 +26,6 @@ public class CDLTest {
         new Thread(rb,"运动员A").start();
         new Thread(rb,"运动员B").start();
         new Thread(rb,"运动员C").start();
-        System.out.println("裁判挥旗，比赛结束");
 
 
     }
