@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class Good{
     private String GoodsName = "macbook";
-    private int num;
+    private int num = 10;
     private int maxnum = 5;
 
     public int getNum() {
@@ -23,7 +23,7 @@ class Good{
     private Condition con = lock.newCondition();
 
     //生产方法
-    public void produce(){
+    public void produce() throws Exception{
         try {
             lock.lock();
             while (num==maxnum){
@@ -41,7 +41,7 @@ class Good{
     }
 
     //消费方法
-    public void consume(){
+    public void consume() throws Exception{
         try {
             lock.lock();
             while (num==0){
@@ -69,7 +69,11 @@ class ProduceThread implements Runnable{
     @Override
     public void run() {
         while (true){
-            this.good.produce();
+            try {
+                this.good.produce();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -83,7 +87,11 @@ class ConsumeThread implements Runnable{
     @Override
     public void run() {
         while (true){
-            this.good.consume();
+            try {
+                this.good.consume();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
