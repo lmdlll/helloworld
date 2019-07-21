@@ -22,9 +22,7 @@ import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 abstract class Person{
     public Person(){                             //3
@@ -108,79 +106,112 @@ class Task implements Runnable{
     }
 }
 
-public class Review {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("hello");
-        list.add("lmd");
-        list.add("lmx");
-        list.add("world");
-        Iterator<String> interator = list.iterator();
-        while (interator.hasNext()){
-            String str = interator.next();
-            if (str.equals("lmd")){
-                list.remove(str);
-            }
-            System.out.println(str);
-        }
+class SemaphoreTask implements Runnable{
+    private Semaphore semaphore;
+    public SemaphoreTask(Semaphore semaphore) {
+        this.semaphore = semaphore;
+    }
 
-
-        Task ts = new Task();
-        Thread th1 = new Thread(ts,"A");
-        Thread th2 = new Thread(ts,"B");
-        th1.start();
-        th2.start();
-
-
-
-        MyThread1 mt = new MyThread1();
-        MyThread1 mt2 = new MyThread1();
-        mt.start();
-        mt2.start();
-        System.out.println("----------------------------------");
-        Thread th11 = new Thread(new MyThread2("one"));
-        Thread th12 = new Thread(new MyThread2("two"));
-        th11.start();
-        th12.start();
-
-        System.out.println("************************************");
-        Thread cl = new Thread(new FutureTask<String>(new MyThread3()));
-        cl.start();
-        MyThread3 mtc1 = new MyThread3();
-        FutureTask<String> ft = new FutureTask<>(mtc1);
-        new Thread(ft).start();
+    @Override
+    public void run() {
         try {
-            System.out.println(ft.get());
+            semaphore.acquire();
+            System.out.println(Thread.currentThread().getName()+"开始使用机器");
+            TimeUnit.SECONDS.sleep(2);
+            System.out.println(Thread.currentThread().getName()+"结束使用机器");
+            semaphore.release();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
         }
-        System.out.println("=====================================");
 
-        String str1 = "abc";
-        String str2 = new String("abc");
-        String str3 = "ab";
-        String str4 = "c";
-        String str5 = str3+str4;
-        String str6 = str3+str4;
-        String str7 = str3+"c";
-        String str8 = "ab"+"c";
+    }
+}
 
-        System.out.println(str1==str2);
-        System.out.println(str1==str5);
-        System.out.println(str5==str6);
-        System.out.println(str5==(str3+str4));
-        System.out.println(str1==str7);
-        System.out.println(str5==str7);
-        System.out.println(str1==str8);
-        System.out.println(str5==str8);
+public class Review {
+    public static void main(String[] args) {
+        //有3个机器
+        Semaphore semaphore = new Semaphore(3);
+        SemaphoreTask task = new SemaphoreTask(semaphore);
+        for (int i=0; i<5; i++) {
+            new Thread(task).start();
+        }
 
 
+//        List<String> list = new ArrayList<>();
+//        list.add("hello");
+//        list.add("lmd");
+//        list.add("lmx");
+//        list.add("world");
+//        Iterator<String> interator = list.iterator();
+//        while (interator.hasNext()){
+//            String str = interator.next();
+//            if (str.equals("lmd")){
+//                list.remove(str);
+//            }
+//            System.out.println(str);
+//        }
+
+
+//        Task ts = new Task();
+//        Thread th1 = new Thread(ts,"A");
+//        Thread th2 = new Thread(ts,"B");
+//        th1.start();
+//        th2.start();
+//
+//
+//
+//        MyThread1 mt = new MyThread1();
+//        MyThread1 mt2 = new MyThread1();
+//        mt.start();
+//        mt2.start();
+//        System.out.println("----------------------------------");
+//        Thread th11 = new Thread(new MyThread2("one"));
+//        Thread th12 = new Thread(new MyThread2("two"));
+//        th11.start();
+//        th12.start();
+//
+//        System.out.println("************************************");
+//        Thread cl = new Thread(new FutureTask<String>(new MyThread3()));
+//        cl.start();
+//        MyThread3 mtc1 = new MyThread3();
+//        FutureTask<String> ft = new FutureTask<>(mtc1);
+//        new Thread(ft).start();
+//        try {
+//            System.out.println(ft.get());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("=====================================");
+//
+//        String str1 = "abc";
+//        String str2 = new String("abc");
+//        String str3 = "ab";
+//        String str4 = "c";
+//        String str5 = str3+str4;
+//        String str6 = str3+str4;
+//        String str7 = str3+"c";
+//        String str8 = "ab"+"c";
+//
+//        System.out.println(str1==str2);
+//        System.out.println(str1==str5);
+//        System.out.println(str5==str6);
+//        System.out.println(str5==(str3+str4));
+//        System.out.println(str1==str7);
+//        System.out.println(str5==str7);
+//        System.out.println(str1==str8);
+//        System.out.println(str5==str8);
+//
+//
 
 
     }
 
-
+    public static int div(int a, int b) {
+        if(b==0)
+            throw new IllegalArgumentException("除数不能为0");
+        return a/b;
+    }
 
 }
