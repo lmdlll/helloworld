@@ -29,19 +29,20 @@
       <file leaf-file-name="PCTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/work/PCTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state>
               <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="STR1.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="STR1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Leetcode/STR1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="436">
+              <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#lengthOfLongestSubstring#0;class#Test#0" />
               </folding>
             </state>
           </provider>
@@ -50,15 +51,13 @@
       <file leaf-file-name="Review.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Review.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="124" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+            <state relative-caret-position="1566">
+              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Person#0" />
                 <element signature="class#Student#0" />
                 <element signature="class#Com#0" />
-                <element signature="e#2714#2715#0" expanded="true" />
-                <element signature="e#2756#2757#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,12 +66,8 @@
       <file leaf-file-name="CDLTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/work/CDLTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
+            <state relative-caret-position="522">
               <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-              <folding>
-                <element signature="e#268#269#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -80,21 +75,17 @@
       <file leaf-file-name="CBTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/work/CBTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-              <folding>
-                <element signature="e#272#273#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="216">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ECTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ECTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/work/ECTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            <state relative-caret-position="144">
+              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -133,11 +124,11 @@
         <option value="$PROJECT_DIR$/src/work/PCTets.java" />
         <option value="$PROJECT_DIR$/src/work/PCTest2.java" />
         <option value="$PROJECT_DIR$/src/work/PCTest.java" />
-        <option value="$PROJECT_DIR$/src/Leetcode/STR1.java" />
         <option value="$PROJECT_DIR$/src/Review.java" />
         <option value="$PROJECT_DIR$/src/work/CDLTest.java" />
         <option value="$PROJECT_DIR$/src/work/CBTest.java" />
         <option value="$PROJECT_DIR$/src/work/ECTest.java" />
+        <option value="$PROJECT_DIR$/src/Leetcode/STR1.java" />
       </list>
     </option>
   </component>
@@ -167,6 +158,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,31 +184,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="work" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-              <item name="CBTest.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-              <item name="CDLTest.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="modcount&#9;PSI&#9;JAVA://java.util.PriorityQueue#modCount&#10;toString&#9;null&#9;null&#10;lock&#9;PSI&#9;JAVA://java.util.concurrent.locks.Lock&#10;setBack&#9;ACTION&#9;Images.SetBackgroundImage&#10;set Back&#9;ACTION&#9;Images.SetBackgroundImage" />
+    <property name="SearchEverywhereHistoryKey" value="equals&#9;PSI&#9;JAVA://com.sun.org.apache.xpath.internal.operations.Equals&#10;hashcode&#9;PSI&#9;JAVA://java.lang.invoke.MethodType.ConcurrentWeakInternSet.WeakEntry#hashcode&#10;modcount&#9;PSI&#9;JAVA://java.util.PriorityQueue#modCount&#10;toString&#9;null&#9;null&#10;lock&#9;PSI&#9;JAVA://java.util.concurrent.locks.Lock&#10;setBack&#9;ACTION&#9;Images.SetBackgroundImage&#10;set Back&#9;ACTION&#9;Images.SetBackgroundImage" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -241,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ECTest">
+  <component name="RunManager" selected="Application.STR1">
     <configuration name="CBTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="work.CBTest" />
       <module name="test" />
@@ -275,21 +252,21 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="PCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="work.PCTest" />
-      <module name="test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="work.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
     <configuration name="Review" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Review" />
       <module name="test" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="STR1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Leetcode.STR1" />
+      <module name="test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Leetcode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -334,18 +311,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.CBTest" />
-      <item itemvalue="Application.PCTest" />
       <item itemvalue="Application.Review" />
       <item itemvalue="Application.CDLTest" />
       <item itemvalue="Application.ECTest" />
+      <item itemvalue="Application.STR1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.STR1" />
         <item itemvalue="Application.ECTest" />
         <item itemvalue="Application.CBTest" />
         <item itemvalue="Application.CDLTest" />
         <item itemvalue="Application.Review" />
-        <item itemvalue="Application.PCTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,12 +354,13 @@
       <workItem from="1563542460711" duration="3286000" />
       <workItem from="1563586210302" duration="1417000" />
       <workItem from="1563619125814" duration="1614000" />
-      <workItem from="1563670199556" duration="5075000" />
+      <workItem from="1563670199556" duration="5265000" />
+      <workItem from="1563771369772" duration="3316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70239000" />
+    <option name="totallyTimeSpent" value="73745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
@@ -398,13 +376,13 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24598071" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24598071" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49253732" visible="true" weight="0.12178517" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4903537" visible="true" weight="0.17019667" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
-      <window_info id="Structure" order="1" sideWeight="0.5074627" side_tool="true" weight="0.12178517" />
+      <window_info id="Structure" order="1" sideWeight="0.5096463" side_tool="true" weight="0.17019667" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -426,39 +404,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/First.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/work/day1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="122" column="61" selection-start-line="122" selection-start-column="61" selection-end-line="122" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Review.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="152" column="3" selection-start-line="152" selection-start-column="3" selection-end-line="152" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Person#0" />
-            <element signature="class#Student#0" />
-            <element signature="class#Com#0" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2756#2757#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/First.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -482,8 +431,6 @@
             <element signature="class#Person#0" />
             <element signature="class#Student#0" />
             <element signature="class#Com#0" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2756#2757#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,8 +458,6 @@
             <element signature="class#Person#0" />
             <element signature="class#Student#0" />
             <element signature="class#Com#0" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2756#2757#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -533,8 +478,6 @@
             <element signature="class#Person#0" />
             <element signature="class#Student#0" />
             <element signature="class#Com#0" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2756#2757#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,18 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/work/PCTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state>
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Leetcode/STR1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -795,45 +728,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Review.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="124" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+        <state relative-caret-position="1566">
+          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#Person#0" />
             <element signature="class#Student#0" />
             <element signature="class#Com#0" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2756#2757#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/work/CDLTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="522">
           <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-          <folding>
-            <element signature="e#268#269#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/work/CBTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8.0_77/src.zip!/java/lang/invoke/MethodType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="1274" column="32" selection-start-line="1274" selection-start-column="32" selection-end-line="1274" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8.0_77/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8.0_77/src.zip!/com/sun/org/apache/xpath/internal/operations/Equals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/work/ECTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        <state relative-caret-position="144">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Leetcode/STR1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#lengthOfLongestSubstring#0;class#Test#0" />
+          </folding>
         </state>
       </provider>
     </entry>

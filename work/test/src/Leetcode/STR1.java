@@ -1,11 +1,13 @@
 package Leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 
 
 /**
- * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ * 1.给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  *
  * 示例 1:
  * 输入: "abcabcbb"
@@ -28,20 +30,59 @@ import java.util.Scanner;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
+
+/**
+ * 2.如何判断链表带环
+ */
+
+class ListNode{
+    int val;
+    ListNode next;
+    ListNode(int x){
+        val = x;
+        next = null;
+    }
+}
+
 class Test{
+    //思路：使用Set进行增删查操作
     public int lengthOfLongestSubstring(String s) {
-        HashMap<String,String> map = new HashMap<>();
+        s = s.toLowerCase();
+        HashSet<Character> set = new HashSet<>();
+        char[] chars = s.toCharArray();
+        int max = 0;
+        for(int i=0; i<s.length(); i++){
+            if(set.contains(chars[i])){
+                if(max<set.size()){
+                    max=set.size();
+                }
+                set.clear();
+                set.add(chars[i]);
+            }else {
+                set.add(chars[i]);
+            }
 
+        }
 
-        return -1;
+        return max<set.size()?set.size():max;
     }
 
+    //链表带环判断
+    //设计两个标志，一个快，一个慢，他们总会相遇，当相遇就是带环
+    public boolean hasCycle(ListNode node){
+        boolean flag = true;
 
+
+        return flag;
+    }
 }
 
 public class STR1 {
     public static void main(String[] args) {
-
+        Test test = new Test();
+        System.out.println(test.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(test.lengthOfLongestSubstring("bbbbbb"));
+        System.out.println(test.lengthOfLongestSubstring("pwwkew"));
 
 
     }
