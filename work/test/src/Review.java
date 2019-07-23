@@ -19,9 +19,7 @@
 
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 
 abstract class Person{
@@ -127,14 +125,96 @@ class SemaphoreTask implements Runnable{
     }
 }
 
+class Person2 implements Comparable<Person2>{
+    private int age;
+    private String name;
+
+    public Person2(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    @Override
+    public int compareTo(Person2 o) {
+        if(this.age<o.age){
+            return -1;
+        } else if (this.age>o.age) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+class Person3 {
+    private int age;
+    private String name;
+
+    public Person3(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+class ASCOM implements Comparator<Person3>{
+    @Override
+    public int compare(Person3 o1, Person3 o2) {
+        if(o1.getAge()<o2.getAge()){
+            return -1;
+        } else if (o1.getAge()>o2.getAge()) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
 public class Review {
     public static void main(String[] args) {
-        //有3个机器
-        Semaphore semaphore = new Semaphore(3);
-        SemaphoreTask task = new SemaphoreTask(semaphore);
-        for (int i=0; i<5; i++) {
-            new Thread(task).start();
-        }
+        Person3 per = new Person3(12,"lm");
+        Person3 per2 = new Person3(20,"lmd");
+        ASCOM comp = new ASCOM();
+//        System.out.println(per.compareTo(per2));
+        System.out.println(comp.compare(per,per2));
+
+
+//        //有3个机器
+//        Semaphore semaphore = new Semaphore(3);
+//        SemaphoreTask task = new SemaphoreTask(semaphore);
+//        for (int i=0; i<5; i++) {
+//            new Thread(task).start();
+//        }
 
 
 //        List<String> list = new ArrayList<>();
