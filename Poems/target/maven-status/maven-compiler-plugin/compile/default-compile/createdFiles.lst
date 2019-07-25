@@ -1,0 +1,6 @@
+com\lmd\PoemsAnalyze\crawler\prase\DtaPageParse.class
+com\lmd\PoemsAnalyze\crawler\prase\Parse.class
+com\lmd\PoemsAnalyze\crawler\pipeline\Pipeline.class
+com\lmd\PoemsAnalyze\TangShiAnalyze.class
+com\lmd\PoemsAnalyze\crawler\common\DataSet.class
+com\lmd\PoemsAnalyze\crawler\common\Page.class
