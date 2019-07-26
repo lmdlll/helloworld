@@ -1,11 +1,14 @@
 package com.lmd.PoemsAnalyze.crawler.common;
 
+import lombok.ToString;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 存储清洗的数据
  */
+@ToString
 public class DataSet {
 
     /**

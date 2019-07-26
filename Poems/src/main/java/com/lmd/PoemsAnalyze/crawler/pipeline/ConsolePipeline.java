@@ -13,5 +13,9 @@ public class ConsolePipeline implements Pipeline {
 
         //存储
         System.out.println(data);
+
+
+
+
     }
 }
