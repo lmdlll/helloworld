@@ -93,39 +93,5 @@ public class NUM1 {
         return lists;
     }
 
-    public static List<List<Integer>> threeSum3(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> lists = new LinkedList();
-        for (int i = 0; i < nums.length; i++) {
-            int a = nums[i];
-            //这里有问题，刚开始写成nums[i]!=nums[i+1] ，结果-4，-4，8出不来，后来改成以下就ok了
-            if(i==0 || (i>0 && nums[i]!=nums[i-1])){
-                int start = i+1;
-                int end = nums.length-1;
-                while (start<end){
-                    if(-a==nums[start]+nums[end]){
-                        lists.add(Arrays.asList(a,nums[start],nums[end]));
-                        while (start<end && nums[start]==nums[start+1]){
-                            start++;
-                        }
-                        while (start<end && nums[end]==nums[end-1]){
-                            end--;
-                        }
-                        start++;
-                        end--;
-                    }else if(-a<nums[start]+nums[end]){
-                        end--;
-                    }else {
-                        start++;
-                    }
-
-                }
-
-            }
-
-
-        }
-        return lists;
-    }
 
 }
