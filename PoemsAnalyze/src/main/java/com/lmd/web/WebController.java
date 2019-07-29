@@ -39,12 +39,10 @@ public class WebController {
         //src/main/resources/static
         //前端静态文件的目录
         Spark.staticFileLocation("/static");
-
         //服务端接口
         Spark.get("/analyze/author_count", ((request, response) -> analyzeAuthorCount()), transformer);
 
-        Spark.get("/analyze/word_cloud"
-                , ((request, response) -> analyzeWordCount()), transformer);
+        Spark.get("/analyze/word_clount", ((request, response) -> analyzeWordCount()), transformer);
 
         Spark.get("/crawler/stop", ((request, response) -> {
             Crawler crawler = ObjectFactory.getInstance().getObject(Crawler.class);

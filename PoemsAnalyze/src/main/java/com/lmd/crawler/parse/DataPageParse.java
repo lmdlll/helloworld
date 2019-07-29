@@ -3,10 +3,12 @@ package com.lmd.crawler.parse;
 import com.gargoylesoftware.htmlunit.html.*;
 import com.lmd.crawler.common.Page;
 
+//详情页面处理
 public class DataPageParse implements Parse {
 
     @Override
     public void parse(final Page page) {
+        //这里只处理详情页面
         if (!page.isDetail()) {
             return;
         }
@@ -31,6 +33,8 @@ public class DataPageParse implements Parse {
         HtmlDivision contentDom = (HtmlDivision) body.getByXPath(contentPath).get(0);
         String content = contentDom.asText();
 
+
+        //将数据存储到map中
         page.getDataSet().putData("title",title);
         page.getDataSet().putData("dynasty",dynasty);
         page.getDataSet().putData("author",author);

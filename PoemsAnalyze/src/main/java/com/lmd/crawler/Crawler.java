@@ -25,33 +25,23 @@ public class Crawler {
 
     /**
      * 放置文档页面（超链接）
-     * 放置详情页面 (数据)
      * 未被采集和解析的页面
-     * Page  htmlPage  dataSet
      */
     private final Queue<Page> docQueue = new LinkedBlockingQueue<>();
 
-    /**
-     * 放置详情页面(处理完成，数据在dataSet)
-     */
+    //放置详情页面(处理完成，数据在dataSet)
     private final Queue<Page> detailQueue = new LinkedBlockingQueue<>();
 
 
-    /**
-     * 采集器
-     */
+    //采集器
     private final WebClient webClient;
 
 
-    /**
-     * 所有的解析器
-     */
+    //所有的解析器
     private final List<Parse> parseList = new LinkedList<>();
 
 
-    /**
-     * 所有的清晰器（管道）
-     */
+    //所有的清洗器
     private final List<Pipeline> pipelineList = new LinkedList<>();
 
     /**
@@ -63,10 +53,8 @@ public class Crawler {
     public Crawler() {
         this.webClient = new WebClient(BrowserVersion.CHROME);
         this.webClient.getOptions().setJavaScriptEnabled(false);
-        this.executorService = Executors.newFixedThreadPool(8, new ThreadFactory() {
-
+        this.executorService = Executors.newFixedThreadPool(10, new ThreadFactory() {
             private final AtomicInteger id = new AtomicInteger(0);
-
             @Override
             public Thread newThread(Runnable r) {
                 Thread thread = new Thread(r);

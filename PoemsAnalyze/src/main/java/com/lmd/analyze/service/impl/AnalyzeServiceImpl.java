@@ -20,13 +20,10 @@ public class AnalyzeServiceImpl  implements AnalyzeService {
     @Override
     public List<AuthorCount> analyzeAuthorCount() {
         //此处结果并未排序
-        //排序方式
-        //1. DAO层SQL排序
-        //2. Service层进行数据排序
         List<AuthorCount> authorCounts = analyzeDao.analyzeAuthorCount();
-        //此处是按照count升序
-        authorCounts.sort(
-                Comparator.comparing(AuthorCount::getCount));
+        //此处是按照count降序
+        authorCounts.sort((o1, o2) -> (-1)*o1.getCount().compareTo(o2.getCount()));
+//        authorCounts.sort(Comparator.comparing(AuthorCount::getCount)); 升序
         return authorCounts;
     }
 
@@ -42,31 +39,31 @@ public class AnalyzeServiceImpl  implements AnalyzeService {
             List<Term> terms = new ArrayList<>();
             String title = poetryInfo.getTitle();
             String content = poetryInfo.getContent();
+            //NlpAnalysis：中文分词
             terms.addAll(NlpAnalysis.parse(title).getTerms());
             terms.addAll(NlpAnalysis.parse(content).getTerms());
-
             Iterator<Term> iterator = terms.iterator();
             while (iterator.hasNext()) {
                 Term term = iterator.next();
-                //词性的过滤
+                //词性的过滤  w是数字标点符号
                 if (term.getNatureStr() == null || term.getNatureStr().equals("w")) {
                     iterator.remove();
                     continue;
                 }
-                //词的过滤
+                //词的过滤 起码大于2个字
                 if (term.getRealName().length() < 2) {
                     iterator.remove();
                     continue;
                 }
                 //统计
-                String realName = term.getRealName();
+                String moreword = term.getRealName();
                 int count;
-                if (map.containsKey(realName)) {
-                    count = map.get(realName) + 1;
+                if (map.containsKey(moreword)) {
+                    count = map.get(moreword) + 1;
                 } else {
                     count = 1;
                 }
-                map.put(realName, count);
+                map.put(moreword, count);
             }
         }
         List<WordCount> wordCounts = new ArrayList<>();

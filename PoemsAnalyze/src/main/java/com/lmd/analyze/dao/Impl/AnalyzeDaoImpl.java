@@ -25,7 +25,7 @@ public class AnalyzeDaoImpl implements AnalyzeDao {
     public List<AuthorCount> analyzeAuthorCount() {
         List<AuthorCount> datas = new ArrayList<>();
         //try()自动关闭
-        String sql = "select count(*) as count , author from poetry_info group by author;";
+        String sql = "select count(*) as count , author from poetry group by author;";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet rs = statement.executeQuery()
@@ -45,7 +45,7 @@ public class AnalyzeDaoImpl implements AnalyzeDao {
     @Override
     public List<Poetry> queryAllPoetryInfo() {
         List<Poetry> datas = new ArrayList<>();
-        String sql ="select title, dynasty , author, content from poetry_info;";
+        String sql ="select title, dynasty ,author, content from poetry;";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet rs = statement.executeQuery()

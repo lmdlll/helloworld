@@ -22,14 +22,13 @@ public class DatabasePipeline implements Pipeline {
 
     @Override
     public void pipeline(final Page page) {
-
+        String title = (String) page.getDataSet().getData("title");
         String dynasty = (String) page.getDataSet().getData("dynasty");
         String author = (String) page.getDataSet().getData("author");
-        String title = (String) page.getDataSet().getData("title");
         String content = (String) page.getDataSet().getData("content");
         //修改对象
 
-        String sql = "insert into poetry (title, dynasty, author, content) values (?,?,?,?)";
+        String sql = "insert into poetry(title, dynasty, author, content) values (?,?,?,?)";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)
         ) {

@@ -14,7 +14,6 @@ import com.lmd.crawler.pipeline.DatabasePipeline;
 import com.lmd.web.WebController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,9 +25,7 @@ public final  class ObjectFactory {
 
     private final Logger logger = LoggerFactory.getLogger(ObjectFactory.class);
 
-    /**
-     * 存放所有的对象
-     */
+    // 存放所有的对象
     private final Map<Class, Object> objectHashMap = new HashMap<>();
 
     private ObjectFactory() {

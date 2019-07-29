@@ -6,17 +6,9 @@ import com.lmd.analyze.model.WordCount;
 import java.util.List;
 
 public interface AnalyzeService {
-    /**
-     * 分析唐诗中作者的创作数量
-     *
-     * @return
-     */
+    // 分析唐诗中作者的创作数量
     List<AuthorCount> analyzeAuthorCount();
 
-    /**
-     * 词云分析
-     *
-     * @return
-     */
+    //词云分析
     List<WordCount> analyzeWordCount();
 }
