@@ -13,8 +13,10 @@ import com.lmd.crawler.parse.DocumentParse;
 import com.lmd.web.WebController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spark.Spark;
 
 import java.util.function.Consumer;
+
 
 public class TangshiAnalyze {
     private static final Logger LOGGER = LoggerFactory.getLogger(TangshiAnalyze.class);
@@ -32,18 +34,21 @@ public class TangshiAnalyze {
 //        System.out.println("测试二：");
 //        analyzeDao.queryAllPoetryInfo().forEach(System.out::println);
 
+//        Spark.get("/hello", (req, res) -> "Hello World");
+        Spark.get("/hello", (req, res) -> "Hello World");
 
-        WebController webController = ObjectFactory.getInstance().getObject(WebController.class);
-        //运行了web服务，提供接口
-        LOGGER.info("Web Server launch ...");
-        webController.launch();
 
-        //启动爬虫
-        if (args.length == 1 && args[0].equals("start-crawler")) {
-            Crawler crawler = ObjectFactory.getInstance().getObject(Crawler.class);
-            LOGGER.info("Crawler started ...");
-            crawler.start();
-        }
+//        WebController webController = ObjectFactory.getInstance().getObject(WebController.class);
+//        //运行了web服务，提供接口
+//        LOGGER.info("Web Server launch ...");
+//        webController.launch();
+//
+//        //启动爬虫
+//        if (args.length == 1 && args[0].equals("start-crawler")) {
+//            Crawler crawler = ObjectFactory.getInstance().getObject(Crawler.class);
+//            LOGGER.info("Crawler started ...");
+//            crawler.start();
+//        }
 
         //127.0.0.1:4567/index.html
     }
