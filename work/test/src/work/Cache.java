@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+//使用map+lock实现缓冲
 public class Cache {
     private Map<String,String> map = new HashMap<>();
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
