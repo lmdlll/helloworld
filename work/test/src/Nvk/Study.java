@@ -1,6 +1,8 @@
 package Nvk;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 题目描述
@@ -27,43 +29,47 @@ import java.util.Scanner;
  */
 public class Study {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int n;
-        int k;
-        while (s.hasNext()) {
-            n = s.nextInt();
-            k = s.nextInt();
-            int[] a = new int[n];
-            int[] t = new int[n];
-            for (int i = 0; i < n; i++) {
-                a[i] = s.nextInt();
-            }
-            int now = 0;
-            for (int i = 0; i < n; i++) {
-                t[i] = s.nextInt();
-                now += t[i] * a[i];
-            }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] interset = new int[n];
+        int[] isAwake = new int[n];
+        int[] sumInterestOf0 = new int[n];
 
-            int result = now;
-            for (int i = 0; i < n; i++) {
-                if (t[i] == 0) {
-                    now += 1 * a[i];
-                }
-                if (i >= k) {
-                    result = Math.max(result, now);
-                    if (i-k<n&&i-k>=0) {
-                        if (t[i-k] == 0) {
-                            now -= 1 * a[i-k];
-                        }
-                    }
-                }
-
+        for (int i = 0; i < n; i++) {
+            interset[i] = sc.nextInt();
+        }
+        int sum0 = 0;
+        int sum1 = 0;
+        for (int i = 0; i < n; i++) {
+            isAwake[i] = sc.nextInt();
+            if (isAwake[i] == 1) {
+                sum1 += interset[i];
+            } else {
+                //未清醒
+                sum0 += interset[i];
             }
-            System.out.println(result);
-
+            //未清醒
+            sumInterestOf0[i] = sum0;
         }
 
+        int cur = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (isAwake[i] == 0) {
+                //(i+k-1)清醒的范围在n-1内
+                if ((i+k-1) > (n-1)) {
+                    cur = sumInterestOf0[n - 1] - (i - 1 >= 0 ? sumInterestOf0[i - 1] : 0);
+                } else {
+                    cur = sumInterestOf0[i + k - 1] - (i - 1 >= 0 ? sumInterestOf0[i - 1] : 0);
+                }
+                max = cur > max ? cur : max;
+            }
+        }
+        System.out.println(sum1 + max);
+
     }
+
 
     //10%通过率,哎，还是把题没看清，我预定的count=3只是他在清醒3分钟的情况下，他的清醒时间不确定啊
     public static void fun1(){
