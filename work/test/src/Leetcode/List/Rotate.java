@@ -1,6 +1,6 @@
 package Leetcode.List;
 
-/**
+/**反转链表
  * 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
  *
  * 示例 1:
@@ -24,23 +24,30 @@ package Leetcode.List;
 
 public class Rotate {
 
-    //思路：右移几位，就倒数第几个 k%head.size()
+    //2ms 思路：右移几位，就倒数第几个 k%head.size()
     public ListNode rotateRight(ListNode head, int k) {
-        int len = k%size(head);
-        ListNode tmp = head;
-        for (int i=0; i<len; i++){
-
-
+        if(k==0 || head==null || head.next==null){
+            return head;
         }
-
-    }
-
-    public static int size(ListNode head){
-        int count = 0;
-        while (head!=null){
+        ListNode res = head;
+        int count = 1;
+        while (head.next!=null){
             count++;
             head = head.next;
         }
-        return count;
+        count = count - k%count;
+        //这里定义一个尾节点
+        ListNode tail = head;
+        //将单链表改为循环链表 eg：1->2->3  => 1->2->3->1->2……
+        tail.next = res;
+        //这里循环 size-k%size
+        for (int i=0; i<count; i++){
+            tail = res;
+            res = res.next;
+        }
+        //将循环链表再次改为单链表
+        tail.next = null;
+        return res;
     }
+
 }

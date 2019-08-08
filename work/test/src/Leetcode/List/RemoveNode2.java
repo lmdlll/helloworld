@@ -14,9 +14,6 @@ import java.util.List;
  * 输入: 1->1->1->2->3
  * 输出: 2->3
  *
- * 建行 6217 0042 2003 5730 641
- * 招商 6214 8329 2132 8527
- *
  */
 public class RemoveNode2 {
     public static void main(String[] args) {
