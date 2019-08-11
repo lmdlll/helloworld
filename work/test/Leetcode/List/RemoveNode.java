@@ -18,8 +18,8 @@ import java.util.*;
 public class RemoveNode {
     public static void main(String[] args) {
         ListNode l1 = new ListNode(-5);
-        ListNode l2 = new ListNode(-1);
-        ListNode l3 = new ListNode(0);
+        ListNode l2 = new ListNode(-3);
+        ListNode l3 = new ListNode(-1);
         ListNode l4 = new ListNode(1);
         ListNode l5 = new ListNode(1);
         ListNode l6 = new ListNode(3);
@@ -70,7 +70,7 @@ public class RemoveNode {
     }
 
     //脑洞想法：使用Set集合 使用了TreeSet进行数据的有序存储，
-    // 但是好像有问题，每次到-3和-1都是-1在前
+    // 但是好像有问题，每次到负数和-1都是-1在前，剩下的负数在后面
     //TODO:
     public static ListNode deleteDuplicates3(ListNode head){
         if(head==null){
