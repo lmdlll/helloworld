@@ -55,9 +55,4 @@ public class ComputeTime {
         minute = result%60;
         System.out.println(hour+" "+minute);
     }
-    //判断N个商品是否参加活动A1（活动有时间周期），参加则按照活动价PAn购买，未参加则按照正常价Pn购买
-    public static double judge(String id,int data){
-        double result = 0.0;
-        return -1;
-    }
 }
