@@ -1,10 +1,8 @@
 package Leetcode.List;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
-
+//链表带环判断
 public class CycleNode {
     public static void main(String[] args) {
         ListNode n1 = new ListNode(1);
@@ -23,8 +21,8 @@ public class CycleNode {
         n6.next = n7;
 
         System.out.println(hasCycle2(n1));
+
     }
-    //链表带环判断
     // 1ms 设计两个标志，一个快，一个慢，他们总会相遇，当相遇就是带环
     public static boolean hasCycle(ListNode node) {
         ListNode fast = node;
