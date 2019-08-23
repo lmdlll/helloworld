@@ -21,10 +21,29 @@ import java.util.*;
  */
 //TODO:层序遍历树
 public class LevelOrder {
-    public static void main(String[] args) {
+
+    public static void PrintNode(TreeNode root){
+        if (root==null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            TreeNode front = queue.poll();
+            System.out.println(front.val);
+            if(front.left!=null){
+                queue.add(front.left);
+            }
+            if(front.right!=null){
+                queue.add(front.right);
+            }
+        }
 
 
     }
+
+
+
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         LinkedList<List<Integer>> result = new LinkedList<>();
         if (root == null)
