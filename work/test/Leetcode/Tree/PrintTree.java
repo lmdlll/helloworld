@@ -2,8 +2,7 @@ package Leetcode.Tree;
 
 //遍历二叉树
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PrintTree {
     public static void main(String[] args) {
@@ -16,11 +15,59 @@ public class PrintTree {
         t1.right = t3;
         t3.left = t4;
         t3.right = t5;
-        System.out.println(preOrder(t1));
+        cxprint(t1);
+        sdprint(t1);
+    }
+
+
+
+    //层序遍历   队列
+    public static void cxprint(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            TreeNode tmp = queue.poll();
+            System.out.println(tmp.val);
+            if(tmp.left!=null){
+                queue.add(tmp.left);
+            }
+            if(tmp.right!=null){
+                queue.add(tmp.right);
+            }
+        }
+    }
+
+
+    //深度遍历   栈
+    public static void sdprint(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        while (!stack.empty()){
+            TreeNode tmp = stack.pop();
+            System.out.println(tmp.val);
+            if(tmp.right!=null){
+                stack.add(tmp.right);
+            }
+            if(tmp.left!=null){
+                stack.add(tmp.left);
+            }
+
+        }
+
 
     }
 
+
+
+
     private static List<Integer> list = new ArrayList<>();
+
 
     //前序：根左右   递归   时间复杂度：O(n)
     public static List<Integer> preOrder(TreeNode root){
