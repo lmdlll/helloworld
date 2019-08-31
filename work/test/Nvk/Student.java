@@ -1,6 +1,9 @@
 package Nvk;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 题目描述：
@@ -39,30 +42,30 @@ import java.util.Scanner;
  */
 public class Student {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        if (in.hasNext()) {
-            int m = in.nextInt();
-            int[] data = new int[m];
-            for (int i = 0; i < m; i++) {
-                data[i] = in.nextInt();
-            }
-
-            int count = 1;
-            int max = data[0];
-            for (int i = 1; i < m; i++) {
-                for (int j = i; j < m; j++) {
-                    if (max > data[j]) {
-                        i = j;
-                        break;
-                    }
-                }
-                if (max <= data[i]) {
-                    max = data[i];
-                    count++;
-                }
-            }
-            System.out.println(count);
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] nums=new int[n];
+        int[] temps=new int[n];
+        for (int i = 0; i <n ; i++) {
+            int in=sc.nextInt();
+            nums[i]=in;
+            temps[i]=in;
         }
+        int res=0;
+        Set<Integer> help=new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < n; i++) {
+            if (help.size()==0)
+            {res++;}
+            if(help.contains(nums[i]))
+                help.remove(nums[i]);
+            else help.add(nums[i]);
+
+            if(help.contains(temps[i]))
+                help.remove(temps[i]);
+            else help.add(temps[i]);
+        }
+        System.out.println(res);
 //        System.out.println(Integer.MAX_VALUE);
     }
 
